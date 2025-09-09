@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Build output
+.dist/
+dist/
+
+# Email build output
+.react-email/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Coverage
+coverage/
+
+# Misc
+*.local
+*.output.css
+
+# TypeScript
+*.tsbuildinfo
+
+# Static assets
+emails/static/*.output.css
+
+# Others
+*.log
+
+# Optional: ignore test snapshots
+__snapshots__/
