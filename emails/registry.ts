@@ -1,6 +1,7 @@
 // Registry of available email templates for safe dynamic loading
 // Add new entries as you create more templates.
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const emailTemplateRegistry: Record<string, () => Promise<{ default: (props: any) => React.ReactElement }>> = {
 
   'general/reset-password': () => import('./General/Reset Password'),
