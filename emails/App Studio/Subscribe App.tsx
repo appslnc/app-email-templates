@@ -189,3 +189,14 @@ SubscribeAppEmail.PreviewProps = {
 };
 
 export default SubscribeAppEmail;
+
+export const subject = (props?: SubscribeAppEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = subscribeAppTranslations[lang] || subscribeAppTranslations['en'];
+  return content.subject || (props?.appName ? `${props.appName} - Choose your plan` : 'Choose your plan');
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(SubscribeAppEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

@@ -113,3 +113,16 @@ PromoAppSubscriptionEmail.PreviewProps = {
 };
 
 export default PromoAppSubscriptionEmail;
+
+export const subject = (props?: PromoAppSubscriptionEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = promoAppSubscriptionTranslations[lang] || promoAppSubscriptionTranslations['en'];
+  const appName = props?.appName ?? 'Our App';
+  const discount = props?.discount ?? '';
+  return (content.subject || `Limited Time: ${discount} OFF ${appName}`).replace('{appName}', appName).replace('{discount}', discount);
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(PromoAppSubscriptionEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

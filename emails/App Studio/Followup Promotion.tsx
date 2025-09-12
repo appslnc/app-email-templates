@@ -142,3 +142,15 @@ FollowupPromotionEmail.PreviewProps = {
 };
 
 export default FollowupPromotionEmail;
+
+export const subject = (props?: FollowupPromotionEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = followupPromotionTranslations[lang] || followupPromotionTranslations['en'];
+  const appName = props?.appName ?? 'our app';
+  return (content.subject || `Thinking about ${appName}?`).replace('{appName}', appName);
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(FollowupPromotionEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

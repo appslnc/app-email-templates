@@ -233,3 +233,15 @@ AppSubscribedEmail.PreviewProps = {
 };
 
 export default AppSubscribedEmail;
+
+export const subject = (props?: AppSubscribedEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = appSubscribedTranslations[lang] || appSubscribedTranslations['en'];
+  const appName = props?.appName ?? '';
+  return (content.subject || `Welcome to ${appName} Premium!`).replace('{appName}', appName);
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(AppSubscribedEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

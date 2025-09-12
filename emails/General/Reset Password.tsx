@@ -111,3 +111,15 @@ PasswordResetEmail.PreviewProps = {
 };
 
 export default PasswordResetEmail;
+
+// Export subject function using translations
+export const subject = (props?: PasswordResetEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = passwordResetTranslations[lang] || passwordResetTranslations['en'];
+  return content.subject || 'Reset your password';
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(PasswordResetEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

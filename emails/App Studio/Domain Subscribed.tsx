@@ -237,3 +237,15 @@ DomainSubscribedEmail.PreviewProps = {
 };
 
 export default DomainSubscribedEmail;
+
+export const subject = (props?: DomainSubscribedEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = domainSubscribedTranslations[lang] || domainSubscribedTranslations['en'];
+  const domainName = props?.domainName ?? '';
+  return (content.subject || `Domain Subscription Confirmed: ${domainName}`).replace('{domainName}', domainName);
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(DomainSubscribedEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

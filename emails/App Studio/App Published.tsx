@@ -189,3 +189,15 @@ AppPublishedEmail.PreviewProps = {
 };
 
 export default AppPublishedEmail;
+
+export const subject = (props?: AppPublishedEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = appPublishedTranslations[lang] || appPublishedTranslations['en'];
+  const appName = props?.appName ?? 'Your App';
+  return (content.subject || `Your App is Live!`).replace('{appName}', appName);
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(AppPublishedEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

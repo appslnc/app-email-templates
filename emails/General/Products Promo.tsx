@@ -143,3 +143,16 @@ ProductsPromoEmail.PreviewProps = {
 };
 
 export default ProductsPromoEmail;
+
+export const subject = (props?: ProductsPromoEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = productsPromoTranslations[lang] || productsPromoTranslations['en'];
+  // Optionally personalize with recipientName
+  if (props?.recipientName) return `${content.subject} — ${props.recipientName}`;
+  return content.subject || 'Exclusive Products Just for You';
+};
+
+export const metadata = { subject };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(ProductsPromoEmail as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */

@@ -22,6 +22,7 @@ export interface WelcomeEmailProps {
   buttonLink?: string;
   titleText?: string;
   subtitleText?: string;
+  subject?: string;
 }
 
 export default function Welcome({ 
@@ -30,8 +31,11 @@ export default function Welcome({
   buttonLink, 
   titleText, 
   subtitleText 
+  , subject
 }: WelcomeEmailProps) {
   const content = welcomeTranslations[lang] || welcomeTranslations["en"];
+  // subject prop is not typically used in the template body, but available for overrides
+  const resolvedSubject = subject ?? "Welcome to App Studio";
   
   const containerStyle = {
     maxWidth: '600px',
@@ -114,3 +118,17 @@ export default function Welcome({
 Welcome.PreviewProps = {
   lang: "en",
 };
+// Expose subject so template-service can pick it up from various module shapes
+// Export a subject factory so callers can compute localized/dynamic subjects
+export const subject = (props?: WelcomeEmailProps) => {
+  const lang = props?.lang ?? 'en';
+  const content = welcomeTranslations[lang] || welcomeTranslations['en'];
+  // Allow templates to override button text or other props to influence subject if needed
+  return content.subject || 'Welcome to App Studio';
+};
+
+export const metadata = { subject };
+// also attach to default export for some bundlers/interop
+/* eslint-disable @typescript-eslint/no-explicit-any */
+(Welcome as any).subject = subject;
+/* eslint-enable @typescript-eslint/no-explicit-any */
