@@ -1,9 +1,10 @@
 import {
+/* eslint-disable */
+
+import {
   Head,
   Container,
-  Heading,
   Preview,
-  Text,
   Button,
   Section,
   Row,
