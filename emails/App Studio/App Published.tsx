@@ -1,5 +1,3 @@
-import {
-/* eslint-disable */
 
 import {
   Head,
