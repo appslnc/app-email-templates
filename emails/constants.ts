@@ -8,7 +8,7 @@ export const INSTAGRAM_URL = "https://instagram.com/appstudio";
 // Image URLs - use absolute URLs for email compatibility
 export const IMAGES_BASE_URL = process.env.NODE_ENV === 'development' 
   ? "/static" // For React Email dev server - now consistent with production path
-  : "https://igen-react-linux.azurewebsites.net/static"; // For production emails
+  : "https://mail.apps.care/static"; // For production emails
 
 export const STATIC_ICON_URL = `${IMAGES_BASE_URL}/icon.webp`;
 export const WELCOME_GIF_URL = `${IMAGES_BASE_URL}/welcome.gif`;
