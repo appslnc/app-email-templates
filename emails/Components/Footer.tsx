@@ -31,9 +31,9 @@ const iconWrapperStyle = {
   padding: '6px',
   borderRadius: '50%',
   backgroundColor: '#808080',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: 'inline-block',
+  textAlign: 'center' as const,
+  verticalAlign: 'middle',
   textDecoration: 'none',
   opacity: 0.7,
   transition: 'opacity 0.2s ease',
@@ -82,6 +82,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="YouTube"
+                  style={{ display: 'block', margin: '0 auto' }}
                 />
               </Link>
             </td>
@@ -96,6 +97,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="Facebook"
+                  style={{ display: 'block', margin: '0 auto' }}
                 />
               </Link>
             </td>
@@ -110,6 +112,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="X"
+                  style={{ display: 'block', margin: '0 auto' }}
                 />
               </Link>
             </td>
@@ -124,6 +127,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="LinkedIn"
+                  style={{ display: 'block', margin: '0 auto' }}
                 />
               </Link>
             </td>

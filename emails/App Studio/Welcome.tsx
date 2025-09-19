@@ -94,10 +94,10 @@ export default function Welcome({
           </Row>
         </Section>
         <Title>{titleText || "Welcome to App Studio"}</Title>
-        <Subtitle>
+        <Subtitle style={{ marginBottom: '32px' }}>
           {subtitleText || content.intro}
         </Subtitle>
-        <Section style={{ marginBottom: '32px', marginTop: '40px' }}>
+       {/*  <Section style={{ marginBottom: '32px', marginTop: '40px' }}>
           <Row>
             <Column align="center">
               <Button
@@ -108,7 +108,7 @@ export default function Welcome({
               </Button>
             </Column>
           </Row>
-        </Section>
+        </Section> */}
       </Container>
     </Layout>
   );
