@@ -20,3 +20,4 @@ export const YOUTUBE_ICON_URL = `${IMAGES_BASE_URL}/yt.png`;
 export const FACEBOOK_ICON_URL = `${IMAGES_BASE_URL}/fb.png`;
 export const X_ICON_URL = `${IMAGES_BASE_URL}/x.png`;
 export const LINKEDIN_ICON_URL = `${IMAGES_BASE_URL}/in.png`;
+export const APPS_ICON_URL = `${IMAGES_BASE_URL}/appsinc-logo.png`;
