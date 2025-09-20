@@ -18,24 +18,10 @@ import { WELCOME_GIF_URL } from "../constants";
 
 export interface WelcomeEmailProps {
   lang?: keyof typeof welcomeTranslations;
-  buttonText?: string;
-  buttonLink?: string;
-  titleText?: string;
-  subtitleText?: string;
-  subject?: string;
 }
 
-export default function Welcome({ 
-  lang = "en", 
-  buttonText, 
-  buttonLink, 
-  titleText, 
-  subtitleText 
-  , subject
-}: WelcomeEmailProps) {
+export default function Welcome({ lang = "en" }: WelcomeEmailProps) {
   const content = welcomeTranslations[lang] || welcomeTranslations["en"];
-  // subject prop is not typically used in the template body, but available for overrides
-  const resolvedSubject = subject ?? "Welcome to App Studio";
   
   const containerStyle = {
     maxWidth: '600px',
@@ -93,10 +79,8 @@ export default function Welcome({
             </Column>
           </Row>
         </Section>
-        <Title>{titleText || "Welcome to App Studio"}</Title>
-        <Subtitle style={{ marginBottom: '32px' }}>
-          {subtitleText || content.intro}
-        </Subtitle>
+        <Title>{content.subtitleText}</Title>
+        <Text style={textStyle}>{content.intro}</Text>
        {/*  <Section style={{ marginBottom: '32px', marginTop: '40px' }}>
           <Row>
             <Column align="center">
