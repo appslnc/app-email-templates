@@ -71,8 +71,7 @@ export default function Welcome({ lang = "en" }: WelcomeEmailProps) {
           <Row>
             <Column align="center">
               <Img 
-                width="640"
-                style={{ width: '640px', maxWidth: '100%', height: 'auto' }}
+                style={{ width: '90%', maxWidth: '650px', height: 'auto' }}
                 src={WELCOME_GIF_URL}
                 alt="Welcome"
               />
