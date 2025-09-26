@@ -20,23 +20,19 @@ const socialLinksContainerStyle = {
   marginBottom: '24px',
 };
 
-const socialLinkStyle = {
-  display: 'inline-block',
-  margin: '0 10px',
-};
-
 const iconWrapperStyle = {
   width: '32px',
   height: '32px',
-  padding: '6px',
+  padding: '4px 6px',
   borderRadius: '50%',
   backgroundColor: '#808080',
-  display: 'inline-block',
-  textAlign: 'center' as const,
-  verticalAlign: 'middle',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   textDecoration: 'none',
   opacity: 0.7,
   transition: 'opacity 0.2s ease',
+  margin: '0 10px',
 };
 
 const addressStyle = {
@@ -69,70 +65,56 @@ export const Footer = () => (
     </Row>
     <Row style={socialLinksContainerStyle}>
       <Column align="center">
-        <table style={{ margin: '0 auto', textAlign: 'center' }}>
-          <tr style={{ textAlign: 'center' }}>
-            <td style={{ ...socialLinkStyle, textAlign: 'center' }}>
-              <Link 
-                href="https://youtube.com/@AppsInc" 
-                style={iconWrapperStyle}
-                className="social-icon"
-              >
-                <Img
-                  src={YOUTUBE_ICON_URL}
-                  width="24"
-                  height="24"
-                  alt="YouTube"
-                  style={{ display: 'block', margin: '0 auto' }}
-                />
-              </Link>
-            </td>
-            <td style={{ ...socialLinkStyle, textAlign: 'center' }}>
-              <Link 
-                href="https://facebook.com/AppsInc" 
-                style={iconWrapperStyle}
-                className="social-icon"
-              >
-                <Img
-                  src={FACEBOOK_ICON_URL}
-                  width="24"
-                  height="24"
-                  alt="Facebook"
-                  style={{ display: 'block', margin: '0 auto' }}
-                />
-              </Link>
-            </td>
-            <td style={{ ...socialLinkStyle, textAlign: 'center' }}>
-              <Link 
-                href="https://x.com/AppsInc" 
-                style={iconWrapperStyle}
-                className="social-icon"
-              >
-                <Img
-                  src={X_ICON_URL}
-                  width="24"
-                  height="24"
-                  alt="X"
-                  style={{ display: 'block', margin: '0 auto' }}
-                />
-              </Link>
-            </td>
-            <td style={{ ...socialLinkStyle, textAlign: 'center' }}>
-              <Link 
-                href="https://linkedin.com/company/AppsInc" 
-                style={iconWrapperStyle}
-                className="social-icon"
-              >
-                <Img
-                  src={LINKEDIN_ICON_URL}
-                  width="24"
-                  height="24"
-                  alt="LinkedIn"
-                  style={{ display: 'block', margin: '0 auto' }}
-                />
-              </Link>
-            </td>
-          </tr>
-        </table>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Link 
+            href="https://youtube.com/@AppsInc" 
+            style={iconWrapperStyle}
+            className="social-icon"
+          >
+            <Img
+              src={YOUTUBE_ICON_URL}
+              width="24"
+              height="24"
+              alt="YouTube"
+            />
+          </Link>
+          <Link 
+            href="https://facebook.com/AppsInc" 
+            style={iconWrapperStyle}
+            className="social-icon"
+          >
+            <Img
+              src={FACEBOOK_ICON_URL}
+              width="24"
+              height="24"
+              alt="Facebook"
+            />
+          </Link>
+          <Link 
+            href="https://x.com/AppsInc" 
+            style={iconWrapperStyle}
+            className="social-icon"
+          >
+            <Img
+              src={X_ICON_URL}
+              width="24"
+              height="24"
+              alt="X"
+            />
+          </Link>
+          <Link 
+            href="https://linkedin.com/company/AppsInc" 
+            style={iconWrapperStyle}
+            className="social-icon"
+          >
+            <Img
+              src={LINKEDIN_ICON_URL}
+              width="24"
+              height="24"
+              alt="LinkedIn"
+            />
+          </Link>
+        </div>
       </Column>
     </Row>
     <Text style={addressStyle}>

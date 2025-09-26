@@ -12,29 +12,27 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
-import { appPublishedTranslations } from "./App Published.translations";
+import { appPublishedNotSubscribedTranslations } from "./App Published Not Subscribed.translations";
 
-
-export interface AppPublishedEmailProps {
-  lang?: keyof typeof appPublishedTranslations;
-  appId: string;
+export interface AppPublishedNotSubscribedEmailProps {
+  lang?: keyof typeof appPublishedNotSubscribedTranslations;
+  userAppGuid: string;
   appName?: string;
   appIcon?: string;
-
  }
 
-const AppPublishedEmail = ({ 
+const AppPublishedNotSubscribedEmail = ({ 
   lang = "en",
   appName = "Your App",
   appIcon,
-  appId,
-}: AppPublishedEmailProps) => {
+  userAppGuid
+}: AppPublishedNotSubscribedEmailProps) => {
 
+  const baseUrl="https://services.igenapps.com"
 
+  const subUrl = baseUrl+`?AppGuid=${userAppGuid}`;
 
-  const appUrl = `https://${appId}.igen.app`;
-
-  const content = appPublishedTranslations[lang] || appPublishedTranslations["en"];
+  const content = appPublishedNotSubscribedTranslations[lang] || appPublishedNotSubscribedTranslations["en"];
   
   const containerStyle = {
     maxWidth: '600px',
@@ -151,12 +149,25 @@ const AppPublishedEmail = ({
             <Column align="center">
               <div style={buttonContainerStyle}>
                 <Button
-                  href={appUrl}
+                  href={`${subUrl}&PlanId=144`}
                   style={{...buttonStyle, marginBottom: '12px'}}
                 >
-                  {content.button}
+                  {content.yearlyPlanCTA}
                 </Button>
                 
+                <Button
+                  href={`${subUrl}&PlanId=143`}
+                  style={{...buttonStyle, marginBottom: '12px'}}
+                >
+                  {content.sixMonthPlanCTA}
+                </Button>
+                
+                <Button
+                  href={`${subUrl}&PlanId=142`}
+                  style={buttonStyle}
+                >
+                  {content.monthlyPlanCTA}
+                </Button>
               </div>
             </Column>
           </Row>
@@ -166,21 +177,21 @@ const AppPublishedEmail = ({
   );
 };
 
-AppPublishedEmail.PreviewProps = {
+AppPublishedNotSubscribedEmail.PreviewProps = {
   lang: "en",
   appName: "My Awesome App"
 };
 
-export default AppPublishedEmail;
+export default AppPublishedNotSubscribedEmail;
 
-export const subject = (props?: AppPublishedEmailProps) => {
+export const subject = (props?: AppPublishedNotSubscribedEmailProps) => {
   const lang = props?.lang ?? 'en';
-  const content = appPublishedTranslations[lang] || appPublishedTranslations['en'];
+  const content = appPublishedNotSubscribedTranslations[lang] || appPublishedNotSubscribedTranslations['en'];
   const appName = props?.appName ?? 'Your App';
   return (content.subject || `Your App is Live!`).replace('{appName}', appName);
 };
 
 export const metadata = { subject };
 /* eslint-disable @typescript-eslint/no-explicit-any */
-(AppPublishedEmail as any).subject = subject;
+(AppPublishedNotSubscribedEmail as any).subject = subject;
 /* eslint-enable @typescript-eslint/no-explicit-any */
