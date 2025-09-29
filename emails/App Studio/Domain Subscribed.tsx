@@ -4,7 +4,6 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
@@ -13,6 +12,7 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
 import { domainSubscribedTranslations } from "./Domain Subscribed.translations";
 
 export interface DomainSubscribedEmailProps {
@@ -45,7 +45,7 @@ const DomainSubscribedEmail = ({
   const content = domainSubscribedTranslations[lang] || domainSubscribedTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px 30px 0 30px',
@@ -76,21 +76,6 @@ const DomainSubscribedEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
 
   const secondaryButtonStyle = {
     backgroundColor: 'transparent',
@@ -214,12 +199,12 @@ const DomainSubscribedEmail = ({
         <Section style={{ marginTop: '40px', paddingBottom: '30px' }}>
           <Row>
             <Column align="center">
-              <Button
+              <PrimaryButton
                 href={content.button.link}
-                style={buttonStyle}
+                style={{ maxWidth: '200px' }}
               >
                 {yearlyPlanCTA || "Manage Domain"}
-              </Button>
+              </PrimaryButton>
             </Column>
           </Row>
         </Section>

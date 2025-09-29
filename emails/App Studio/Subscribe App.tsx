@@ -4,7 +4,6 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
@@ -13,6 +12,7 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
 import { subscribeAppTranslations } from "./Subscribe App.translations";
 
 export interface SubscribeAppEmailProps {
@@ -41,7 +41,7 @@ const SubscribeAppEmail = ({
   const content = subscribeAppTranslations[lang] || subscribeAppTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px 30px 10px 30px',
@@ -65,21 +65,6 @@ const SubscribeAppEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
 
   const iconContainerStyle = {
     textAlign: 'center' as const,
@@ -154,26 +139,25 @@ const SubscribeAppEmail = ({
           <Row>
             <Column align="center">
               <div style={buttonContainerStyle}>
-                <Button
+                <PrimaryButton
                   href={content.button.link}
-                  style={{...buttonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {yearlyPlanCTA || "<Yearly_Plan_CTA>"}
-                </Button>
-                
-                <Button
+                </PrimaryButton>
+
+                <PrimaryButton
                   href={content.button.link}
-                  style={{...buttonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {sixMonthPlanCTA || "<6_Month_Plan_CTA>"}
-                </Button>
-                
-                <Button
+                </PrimaryButton>
+
+                <PrimaryButton
                   href={content.button.link}
-                  style={buttonStyle}
                 >
                   {monthlyPlanCTA || "<Monthly_Plan_CTA>"}
-                </Button>
+                </PrimaryButton>
               </div>
             </Column>
           </Row>

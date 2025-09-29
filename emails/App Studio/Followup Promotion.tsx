@@ -4,12 +4,12 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
 } from "@react-email/components";
 import Layout from "../Components/Layout";
+import PrimaryButton from "../Components/PrimaryButton";
 import { followupPromotionTranslations } from "./Followup Promotion.translations";
 
 export interface FollowupPromotionEmailProps {
@@ -28,7 +28,7 @@ const FollowupPromotionEmail = ({
   const content = followupPromotionTranslations[lang] || followupPromotionTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px',
@@ -60,17 +60,6 @@ const FollowupPromotionEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'inline-block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-  };
 
   const highlightBoxStyle = {
     backgroundColor: '#F8FAFC',
@@ -114,12 +103,11 @@ const FollowupPromotionEmail = ({
         <Section style={{ marginBottom: '32px' }}>
           <Row>
             <Column align="center">
-              <Button
+              <PrimaryButton
                 href={content.button.link}
-                style={buttonStyle}
               >
                 {content.button.text}
-              </Button>
+              </PrimaryButton>
             </Column>
           </Row>
         </Section>

@@ -4,12 +4,12 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
 } from "@react-email/components";
 import Layout from "../Components/Layout";
+import PrimaryButton from "../Components/PrimaryButton";
 import { productsPromoTranslations } from "./Products Promo.translations";
 
 export interface ProductsPromoEmailProps {
@@ -24,7 +24,7 @@ const ProductsPromoEmail = ({
   const content = productsPromoTranslations[lang] || productsPromoTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     padding: '30px',
     fontFamily: 'Ubuntu, sans-serif',
@@ -48,17 +48,6 @@ const ProductsPromoEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'inline-block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-  };
 
   const productBoxStyle = {
     backgroundColor: '#F9FAFB',
@@ -119,12 +108,11 @@ const ProductsPromoEmail = ({
         <Section style={{ marginBottom: '32px' }}>
           <Row>
             <Column align="center">
-              <Button
+              <PrimaryButton
                 href={content.button.link}
-                style={buttonStyle}
               >
                 {content.button.text}
-              </Button>
+              </PrimaryButton>
             </Column>
           </Row>
         </Section>

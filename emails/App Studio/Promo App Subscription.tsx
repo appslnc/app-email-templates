@@ -4,7 +4,6 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
@@ -12,6 +11,7 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
 import { promoAppSubscriptionTranslations } from "./Promo App Subscription.translations";
 
 export interface PromoAppSubscriptionEmailProps {
@@ -24,7 +24,7 @@ const PromoAppSubscriptionEmail = ({ lang = "en", appName = "Our App", discount 
   const content = promoAppSubscriptionTranslations[lang] || promoAppSubscriptionTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px',
@@ -57,21 +57,6 @@ const PromoAppSubscriptionEmail = ({ lang = "en", appName = "Our App", discount 
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
 
   return (
     <Layout fontFamily={"brand"}>
@@ -80,7 +65,7 @@ const PromoAppSubscriptionEmail = ({ lang = "en", appName = "Our App", discount 
       </Head>
       <Container style={containerStyle}>
         <Heading style={headingStyle}>{content.heading.replace('{appName}', appName)}</Heading>
-        <Title>
+        <Title style={{ fontSize: '52px' }}>
           {content.discountText.replace('{discount}', discount)}
         </Title>
         <Subtitle>
@@ -89,12 +74,11 @@ const PromoAppSubscriptionEmail = ({ lang = "en", appName = "Our App", discount 
         <Section style={{ marginTop: '30px', marginBottom: '16px' }}>
           <Row>
             <Column align="center">
-              <Button
+              <PrimaryButton
                 href={content.button.link}
-                style={buttonStyle}
               >
                 {content.button.text}
-              </Button>
+              </PrimaryButton>
             </Column>
           </Row>
         </Section>
