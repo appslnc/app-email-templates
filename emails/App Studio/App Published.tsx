@@ -8,6 +8,7 @@ import {
   Row,
   Column,
   Img,
+  Link,
 } from "@react-email/components";
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
@@ -143,6 +144,10 @@ const AppPublishedEmail = ({
         {/* Subtitle */}
         <Subtitle>
           {content.subtitleText}
+          <br /><br />
+          {content.submitText}
+          <br /><br />
+          <Link href="https://apps.care">{content.faqText}</Link>
         </Subtitle>
 
         {/* Three Stacked Buttons */}
@@ -156,7 +161,6 @@ const AppPublishedEmail = ({
                 >
                   {content.button}
                 </Button>
-                
               </div>
             </Column>
           </Row>

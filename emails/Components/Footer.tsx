@@ -26,9 +26,9 @@ const iconWrapperStyle = {
   padding: '4px 6px',
   borderRadius: '50%',
   backgroundColor: '#808080',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  display: 'inline-block',
+  textAlign: 'center' as const,
+  verticalAlign: 'middle',
   textDecoration: 'none',
   opacity: 0.7,
   transition: 'opacity 0.2s ease',
@@ -65,56 +65,66 @@ export const Footer = () => (
     </Row>
     <Row style={socialLinksContainerStyle}>
       <Column align="center">
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Link 
-            href="https://youtube.com/@AppsInc" 
-            style={iconWrapperStyle}
-            className="social-icon"
-          >
-            <Img
-              src={YOUTUBE_ICON_URL}
-              width="24"
-              height="24"
-              alt="YouTube"
-            />
-          </Link>
-          <Link 
-            href="https://facebook.com/AppsInc" 
-            style={iconWrapperStyle}
-            className="social-icon"
-          >
-            <Img
-              src={FACEBOOK_ICON_URL}
-              width="24"
-              height="24"
-              alt="Facebook"
-            />
-          </Link>
-          <Link 
-            href="https://x.com/AppsInc" 
-            style={iconWrapperStyle}
-            className="social-icon"
-          >
-            <Img
-              src={X_ICON_URL}
-              width="24"
-              height="24"
-              alt="X"
-            />
-          </Link>
-          <Link 
-            href="https://linkedin.com/company/AppsInc" 
-            style={iconWrapperStyle}
-            className="social-icon"
-          >
-            <Img
-              src={LINKEDIN_ICON_URL}
-              width="24"
-              height="24"
-              alt="LinkedIn"
-            />
-          </Link>
-        </div>
+        <table style={{ margin: '0 auto', borderCollapse: 'collapse' }}>
+          <tr>
+            <td style={{ padding: '0 5px' }}>
+              <Link 
+                href="https://youtube.com/@AppsInc" 
+                style={iconWrapperStyle}
+                className="social-icon"
+              >
+                <Img
+                  src={YOUTUBE_ICON_URL}
+                  width="24"
+                  height="24"
+                  alt="YouTube"
+                />
+              </Link>
+            </td>
+            <td style={{ padding: '0 5px' }}>
+              <Link 
+                href="https://facebook.com/AppsInc" 
+                style={iconWrapperStyle}
+                className="social-icon"
+              >
+                <Img
+                  src={FACEBOOK_ICON_URL}
+                  width="24"
+                  height="24"
+                  alt="Facebook"
+                />
+              </Link>
+            </td>
+            <td style={{ padding: '0 5px' }}>
+              <Link 
+                href="https://x.com/AppsInc" 
+                style={iconWrapperStyle}
+                className="social-icon"
+              >
+                <Img
+                  src={X_ICON_URL}
+                  width="24"
+                  height="24"
+                  alt="X"
+                />
+              </Link>
+            </td>
+            <td style={{ padding: '0 5px' }}>
+              <Link 
+                href="https://linkedin.com/company/AppsInc" 
+                style={iconWrapperStyle}
+                className="social-icon"
+              >
+                <Img
+                  src={LINKEDIN_ICON_URL}
+                  width="24"
+                  height="24"
+                  alt="LinkedIn"
+                />
+              </Link>
+            </td>
+          </tr>
+        </table>
       </Column>
     </Row>
     <Text style={addressStyle}>
