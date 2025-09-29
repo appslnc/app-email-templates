@@ -67,7 +67,7 @@ export const Footer = () => (
       <Column align="center">
         <table style={{ margin: '0 auto', borderCollapse: 'collapse' }}>
           <tr>
-            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
+            <td style={{ padding: '0 5px' }}>
               <Link 
                 href="https://youtube.com/@AppsInc" 
                 style={iconWrapperStyle}
@@ -78,10 +78,11 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="YouTube"
+                  style={{ margin: '0 auto', display: 'block' }}
                 />
               </Link>
             </td>
-            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
+            <td style={{ padding: '0 5px' }}>
               <Link 
                 href="https://facebook.com/AppsInc" 
                 style={iconWrapperStyle}
@@ -92,10 +93,11 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="Facebook"
+                  style={{ margin: '0 auto', display: 'block' }}
                 />
               </Link>
             </td>
-            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
+            <td style={{ padding: '0 5px' }}>
               <Link 
                 href="https://x.com/AppsInc" 
                 style={iconWrapperStyle}
@@ -106,10 +108,11 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="X"
+                  style={{ margin: '0 auto', display: 'block' }}
                 />
               </Link>
             </td>
-            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
+            <td style={{ padding: '0 5px' }}>
               <Link 
                 href="https://linkedin.com/company/AppsInc" 
                 style={iconWrapperStyle}
@@ -120,6 +123,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="LinkedIn"
+                  style={{ margin: '0 auto', display: 'block' }}
                 />
               </Link>
             </td>
