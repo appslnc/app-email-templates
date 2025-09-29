@@ -78,7 +78,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="YouTube"
-                  style={{ margin: '0 auto', display: 'block' }}
+                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
                 />
               </Link>
             </td>
@@ -93,7 +93,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="Facebook"
-                  style={{ margin: '0 auto', display: 'block' }}
+                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
                 />
               </Link>
             </td>
@@ -108,7 +108,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="X"
-                  style={{ margin: '0 auto', display: 'block' }}
+                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
                 />
               </Link>
             </td>
@@ -123,7 +123,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="LinkedIn"
-                  style={{ margin: '0 auto', display: 'block' }}
+                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
                 />
               </Link>
             </td>
