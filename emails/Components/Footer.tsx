@@ -67,7 +67,7 @@ export const Footer = () => (
       <Column align="center">
         <table style={{ margin: '0 auto', borderCollapse: 'collapse' }}>
           <tr>
-            <td style={{ padding: '0 5px' }}>
+            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
               <Link 
                 href="https://youtube.com/@AppsInc" 
                 style={iconWrapperStyle}
@@ -81,7 +81,7 @@ export const Footer = () => (
                 />
               </Link>
             </td>
-            <td style={{ padding: '0 5px' }}>
+            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
               <Link 
                 href="https://facebook.com/AppsInc" 
                 style={iconWrapperStyle}
@@ -95,7 +95,7 @@ export const Footer = () => (
                 />
               </Link>
             </td>
-            <td style={{ padding: '0 5px' }}>
+            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
               <Link 
                 href="https://x.com/AppsInc" 
                 style={iconWrapperStyle}
@@ -109,7 +109,7 @@ export const Footer = () => (
                 />
               </Link>
             </td>
-            <td style={{ padding: '0 5px' }}>
+            <td style={{ padding: '8px 5px', textAlign: 'center', verticalAlign: 'middle' }}>
               <Link 
                 href="https://linkedin.com/company/AppsInc" 
                 style={iconWrapperStyle}
