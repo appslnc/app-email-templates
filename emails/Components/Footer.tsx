@@ -78,7 +78,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="YouTube"
-                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
+                  style={{ margin: '4px auto 0', display: 'block', verticalAlign: 'middle' }}
                 />
               </Link>
             </td>
@@ -108,7 +108,7 @@ export const Footer = () => (
                   width="24"
                   height="24"
                   alt="X"
-                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
+                  style={{ margin: '3px auto 0', display: 'block', verticalAlign: 'middle' }}
                 />
               </Link>
             </td>
