@@ -1,6 +1,6 @@
-export const APPSTUDIO_URL = "https://appstudio.com";
-export const DASHBOARD_URL = "https://appstudio.com/dashboard";
-export const VIEW_EMAIL_URL = "https://appstudio.com/view-email";
+export const APPSTUDIO_URL = "https://xn--pps-lla.com";
+export const DASHBOARD_URL = "https://xn--pps-lla.com";
+export const VIEW_EMAIL_URL = "https://xn--pps-lla.com";
 export const TWITTER_URL = "https://twitter.com/appstudio";
 export const FACEBOOK_URL = "https://facebook.com/appstudio";
 export const INSTAGRAM_URL = "https://instagram.com/appstudio";
