@@ -4,7 +4,6 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
@@ -13,6 +12,8 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
+import SecondaryButton from "../Components/SecondaryButton";
 import { appSubscribedTranslations } from "./App Subscribed.translations";
 
 export interface AppSubscribedEmailProps {
@@ -45,7 +46,7 @@ const AppSubscribedEmail = ({
   const content = appSubscribedTranslations[lang] || appSubscribedTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px 30px 10px 30px',
@@ -76,21 +77,6 @@ const AppSubscribedEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
 
   const secondaryButtonStyle = {
     backgroundColor: 'transparent',
@@ -195,26 +181,25 @@ const AppSubscribedEmail = ({
           <Row>
             <Column align="center">
               <div style={buttonContainerStyle}>
-                <Button
+                <PrimaryButton
                   href={content.button.link}
-                  style={{...buttonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {yearlyPlanCTA || "Submit to Both Stores"}
-                </Button>
-                
-                <Button
+                </PrimaryButton>
+
+                <SecondaryButton
                   href={content.button.link}
-                  style={{...secondaryButtonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {sixMonthPlanCTA || "Submit to App Store"}
-                </Button>
-                
-                <Button
+                </SecondaryButton>
+
+                <SecondaryButton
                   href={content.button.link}
-                  style={secondaryButtonStyle}
                 >
                   {monthlyPlanCTA || "Submit to Google Play"}
-                </Button>
+                </SecondaryButton>
               </div>
             </Column>
           </Row>

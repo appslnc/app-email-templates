@@ -3,7 +3,6 @@ import {
   Head,
   Container,
   Preview,
-  Button,
   Section,
   Row,
   Column,
@@ -12,6 +11,7 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
 import { appPublishedNotSubscribedTranslations } from "./App Published Not Subscribed.translations";
 
 export interface AppPublishedNotSubscribedEmailProps {
@@ -35,7 +35,7 @@ const AppPublishedNotSubscribedEmail = ({
   const content = appPublishedNotSubscribedTranslations[lang] || appPublishedNotSubscribedTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px 30px 10px 30px',
@@ -59,21 +59,6 @@ const AppPublishedNotSubscribedEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
 
   const iconContainerStyle = {
     textAlign: 'center' as const,
@@ -148,26 +133,25 @@ const AppPublishedNotSubscribedEmail = ({
           <Row>
             <Column align="center">
               <div style={buttonContainerStyle}>
-                <Button
+                <PrimaryButton
                   href={`${subUrl}&PlanId=144`}
-                  style={{...buttonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {content.yearlyPlanCTA}
-                </Button>
-                
-                <Button
+                </PrimaryButton>
+
+                <PrimaryButton
                   href={`${subUrl}&PlanId=143`}
-                  style={{...buttonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {content.sixMonthPlanCTA}
-                </Button>
-                
-                <Button
+                </PrimaryButton>
+
+                <PrimaryButton
                   href={`${subUrl}&PlanId=142`}
-                  style={buttonStyle}
                 >
                   {content.monthlyPlanCTA}
-                </Button>
+                </PrimaryButton>
               </div>
             </Column>
           </Row>

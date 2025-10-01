@@ -3,7 +3,6 @@ import {
   Head,
   Container,
   Preview,
-  Button,
   Section,
   Row,
   Column,
@@ -13,6 +12,7 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
 import { appPublishedTranslations } from "./App Published.translations";
 
 
@@ -38,7 +38,7 @@ const AppPublishedEmail = ({
   const content = appPublishedTranslations[lang] || appPublishedTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px 30px 10px 30px',
@@ -62,21 +62,6 @@ const AppPublishedEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
 
   const iconContainerStyle = {
     textAlign: 'center' as const,
@@ -138,9 +123,23 @@ const AppPublishedEmail = ({
           </Row>
         </Section>
 
+        {/* Small ALL CAPS Subtitle */}
+        <Section style={{ marginBottom: '8px', textAlign: 'center' }}>
+          <span style={{
+            fontSize: '11px',
+            fontWeight: '500',
+            color: '#6B7280',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            fontFamily: 'Ubuntu, sans-serif',
+          }}>
+            YOUR APP IS LIVE!
+          </span>
+        </Section>
+
         {/* Title */}
         <Title>{content.heading}</Title>
-        
+
         {/* Subtitle */}
         <Subtitle>
           {content.subtitleText}
@@ -155,12 +154,12 @@ const AppPublishedEmail = ({
           <Row>
             <Column align="center">
               <div style={buttonContainerStyle}>
-                <Button
+                <PrimaryButton
                   href={appUrl}
-                  style={{...buttonStyle, marginBottom: '12px'}}
+                  style={{ marginBottom: '12px' }}
                 >
                   {content.button}
-                </Button>
+                </PrimaryButton>
               </div>
             </Column>
           </Row>

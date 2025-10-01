@@ -21,18 +21,17 @@ const socialLinksContainerStyle = {
 };
 
 const iconWrapperStyle = {
-  width: '32px',
-  height: '32px',
-  padding: '4px 6px',
+  width: '40px',
+  height: '40px',
   borderRadius: '50%',
   backgroundColor: '#808080',
-  display: 'inline-block',
-  textAlign: 'center' as const,
-  verticalAlign: 'middle',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   textDecoration: 'none',
   opacity: 0.7,
   transition: 'opacity 0.2s ease',
-  margin: '0 10px',
+  margin: '0 8px',
 };
 
 const addressStyle = {
@@ -75,10 +74,10 @@ export const Footer = () => (
               >
                 <Img
                   src={YOUTUBE_ICON_URL}
-                  width="24"
-                  height="24"
+                  width="18"
+                  height="18"
                   alt="YouTube"
-                  style={{ margin: '4px auto 0', display: 'block', verticalAlign: 'middle' }}
+                  style={{ display: 'block' }}
                 />
               </Link>
             </td>
@@ -90,10 +89,10 @@ export const Footer = () => (
               >
                 <Img
                   src={FACEBOOK_ICON_URL}
-                  width="24"
-                  height="24"
+                  width="18"
+                  height="18"
                   alt="Facebook"
-                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
+                  style={{ display: 'block' }}
                 />
               </Link>
             </td>
@@ -105,10 +104,10 @@ export const Footer = () => (
               >
                 <Img
                   src={X_ICON_URL}
-                  width="24"
-                  height="24"
+                  width="18"
+                  height="18"
                   alt="X"
-                  style={{ margin: '3px auto 0', display: 'block', verticalAlign: 'middle' }}
+                  style={{ display: 'block' }}
                 />
               </Link>
             </td>
@@ -120,10 +119,10 @@ export const Footer = () => (
               >
                 <Img
                   src={LINKEDIN_ICON_URL}
-                  width="24"
-                  height="24"
+                  width="18"
+                  height="18"
                   alt="LinkedIn"
-                  style={{ margin: '2px auto 0', display: 'block', verticalAlign: 'middle' }}
+                  style={{ display: 'block', marginTop: '-2px', marginLeft: '1px' }}
                 />
               </Link>
             </td>

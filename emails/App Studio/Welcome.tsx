@@ -4,7 +4,6 @@ import {
   Heading,
   Preview,
   Text,
-  Button,
   Section,
   Row,
   Column,
@@ -13,6 +12,7 @@ import {
 import Layout from "../Components/Layout";
 import Title from "../Components/Title";
 import Subtitle from "../Components/Subtitle";
+import PrimaryButton from "../Components/PrimaryButton";
 import { welcomeTranslations } from "./Welcome.translations";
 import { WELCOME_GIF_URL } from "../constants";
 
@@ -24,7 +24,7 @@ export default function Welcome({ lang = "en" }: WelcomeEmailProps) {
   const content = welcomeTranslations[lang] || welcomeTranslations["en"];
   
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '660px',
     margin: '0 auto',
     fontFamily: 'Ubuntu, sans-serif',
     padding: '30px',
@@ -48,18 +48,6 @@ export default function Welcome({ lang = "en" }: WelcomeEmailProps) {
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-  const buttonStyle = {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'inline-block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    minWidth: '200px',
-  };
 
   return (
     <Layout fontFamily={"brand"}>
@@ -80,18 +68,17 @@ export default function Welcome({ lang = "en" }: WelcomeEmailProps) {
         </Section>
         <Title>{content.subtitleText}</Title>
         <Text style={textStyle}>{content.intro}</Text>
-       {/*  <Section style={{ marginBottom: '32px', marginTop: '40px' }}>
+        <Section style={{ marginBottom: '32px', marginTop: '40px' }}>
           <Row>
             <Column align="center">
-              <Button
-                href={buttonLink || content.button.link}
-                style={buttonStyle}
+              <PrimaryButton
+                href={content.button.link}
               >
-                {buttonText || content.button.text}
-              </Button>
+                {content.button.text}
+              </PrimaryButton>
             </Column>
           </Row>
-        </Section> */}
+        </Section>
       </Container>
     </Layout>
   );
