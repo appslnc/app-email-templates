@@ -1,9 +1,11 @@
 export const APPSTUDIO_URL = "https://xn--pps-lla.com";
 export const DASHBOARD_URL = "https://xn--pps-lla.com";
 export const VIEW_EMAIL_URL = "https://xn--pps-lla.com";
-export const TWITTER_URL = "https://twitter.com/appstudio";
-export const FACEBOOK_URL = "https://facebook.com/appstudio";
-export const INSTAGRAM_URL = "https://instagram.com/appstudio";
+export const YOUTUBE_URL = "https://twitter.com/appslnc";
+export const TWITTER_URL = "https://twitter.com/appslnc";
+export const FACEBOOK_URL = "https://facebook.com/appslnc";
+export const INSTAGRAM_URL = "https://instagram.com/appslnc";
+export const LINKEDIN_URL = "https://www.linkedin.com/company/appslnc";
 
 // Image URLs - use absolute URLs for email compatibility
 export const IMAGES_BASE_URL = process.env.NODE_ENV === 'development' 

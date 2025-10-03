@@ -1,5 +1,5 @@
 import { Link, Text, Section, Row, Column, Img } from "@react-email/components";
-import { YOUTUBE_ICON_URL, FACEBOOK_ICON_URL, X_ICON_URL, LINKEDIN_ICON_URL, APPS_ICON_URL } from "../constants";
+import { YOUTUBE_ICON_URL, FACEBOOK_ICON_URL, X_ICON_URL, LINKEDIN_ICON_URL, APPS_ICON_URL, YOUTUBE_URL, FACEBOOK_URL, TWITTER_URL, LINKEDIN_URL } from "../constants";
 
 const footerContainerStyle = {
   marginTop: '40px',
@@ -68,7 +68,7 @@ export const Footer = () => (
           <tr>
             <td style={{ padding: '0 5px' }}>
               <Link 
-                href="https://youtube.com/@AppsInc" 
+                href={YOUTUBE_URL} 
                 style={iconWrapperStyle}
                 className="social-icon"
               >
@@ -83,7 +83,7 @@ export const Footer = () => (
             </td>
             <td style={{ padding: '0 5px' }}>
               <Link 
-                href="https://facebook.com/AppsInc" 
+                href={FACEBOOK_URL} 
                 style={iconWrapperStyle}
                 className="social-icon"
               >
@@ -98,7 +98,7 @@ export const Footer = () => (
             </td>
             <td style={{ padding: '0 5px' }}>
               <Link 
-                href="https://x.com/AppsInc" 
+                href={TWITTER_URL} 
                 style={iconWrapperStyle}
                 className="social-icon"
               >
@@ -113,7 +113,7 @@ export const Footer = () => (
             </td>
             <td style={{ padding: '0 5px' }}>
               <Link 
-                href="https://linkedin.com/company/AppsInc" 
+                href={LINKEDIN_URL} 
                 style={iconWrapperStyle}
                 className="social-icon"
               >
