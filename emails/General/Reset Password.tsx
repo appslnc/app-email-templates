@@ -14,9 +14,10 @@ import { passwordResetTranslations } from "./Reset Password.translations";
 
 export interface PasswordResetEmailProps {
   lang?: keyof typeof passwordResetTranslations;
+  resetLink: string;
 }
 
-const PasswordResetEmail = ({ lang = "en" }: PasswordResetEmailProps) => {
+const PasswordResetEmail = ({ lang = "en", resetLink }: PasswordResetEmailProps) => {
   const content = passwordResetTranslations[lang] || passwordResetTranslations["en"];
   
   const containerStyle = {
@@ -76,7 +77,7 @@ const PasswordResetEmail = ({ lang = "en" }: PasswordResetEmailProps) => {
           <Row>
             <Column align="center">
               <PrimaryButton
-                href={content.button.link}
+                href={resetLink}
               >
                 {content.button.text}
               </PrimaryButton>
@@ -96,6 +97,7 @@ const PasswordResetEmail = ({ lang = "en" }: PasswordResetEmailProps) => {
 
 PasswordResetEmail.PreviewProps = {
   lang: "en",
+  resetLink: "https://example.com/reset-password",
 };
 
 export default PasswordResetEmail;
