@@ -18,35 +18,18 @@ import { appSubscriptionDiscountTranslations } from "./App Subscription Discount
 
 export interface AppSubscriptionDiscountEmailProps {
   lang?: keyof typeof appSubscriptionDiscountTranslations;
-  appName?: string;
-  discount?: string;
-  expiryDate?: string;
-  yearlyPlanCTA?: string;
-  sixMonthPlanCTA?: string;
-  monthlyPlanCTA?: string;
-  titleText?: string;
-  subtitleText?: string;
-  appIcon?: string;
-  previewText?: string;
-  countdownImageUrl?: string;
+  userAppGuid: string;
 }
 
 const AppSubscriptionDiscountEmail = ({ 
   lang = "en",
-  appName = "Our App",
-  discount = "30%",
-  expiryDate = "December 31, 2023",
-  yearlyPlanCTA,
-  sixMonthPlanCTA,
-  monthlyPlanCTA,
-  titleText,
-  subtitleText,
-  appIcon,
-  previewText,
-  countdownImageUrl
+  userAppGuid,
 }: AppSubscriptionDiscountEmailProps) => {
   const content = appSubscriptionDiscountTranslations[lang] || appSubscriptionDiscountTranslations["en"];
-  
+
+  const baseUrl="https://services.igenapps.com"
+  const subUrl = baseUrl+`?AppGuid=${userAppGuid}`;
+
   const containerStyle = {
     maxWidth: '660px',
     margin: '0 auto',
@@ -71,7 +54,6 @@ const AppSubscriptionDiscountEmail = ({
     lineHeight: '24px',
     fontFamily: 'Ubuntu, sans-serif',
   };
-
 
   const secondaryButtonStyle = {
     backgroundColor: 'transparent',
@@ -118,7 +100,7 @@ const AppSubscriptionDiscountEmail = ({
   return (
     <Layout fontFamily={"brand"}>
       <Head>
-        <Preview>{previewText || "Choose your plan - Your app is about to get even better"}</Preview>
+        <Preview>{content.preview}</Preview>
         <style>{`
           @keyframes pulse {
             0%, 100% {
@@ -144,7 +126,7 @@ const AppSubscriptionDiscountEmail = ({
                 display: 'inline-block',
               }}>
                 <Img
-                  src={countdownImageUrl || "/static/countdown.gif"}
+                  src="/static/countdown.gif"
                   alt="24 Hour Countdown Timer"
                   style={{
                     borderRadius: '8px',
@@ -160,12 +142,64 @@ const AppSubscriptionDiscountEmail = ({
         </Section>
 
         {/* Title */}
-        <Title style={{ marginTop: '20px' }}>{titleText || "Flash Offer: Extra 50% Off!"}</Title>
+        <Title style={{ marginTop: '20px' }}>{content.heading}</Title>
         
-        {/* Subtitle */}
+        {/* Discount Text */}
+        <Section style={{ marginBottom: '16px' }}>
+          <Row>
+            <Column align="center">
+              <Text style={{
+                fontSize: '32px',
+                fontWeight: 'bold',
+                color: '#DC2626',
+                textAlign: 'center',
+                margin: '0',
+              }}>
+                {content.discountText}
+              </Text>
+            </Column>
+          </Row>
+        </Section>
+
+        {/* Intro Text */}
         <Subtitle>
-          {subtitleText || "For a limited time only, enjoy an additional 50% off on top of our already low prices. Don't miss this chance to maximize your savings!"}
+          {content.intro}
         </Subtitle>
+
+        {/* Urgency Text */}
+        <Section style={{ marginBottom: '24px' }}>
+          <Row>
+            <Column align="center">
+              <Text style={{
+                fontSize: '18px',
+                fontWeight: '600',
+                color: '#DC2626',
+                textAlign: 'center',
+                margin: '0',
+              }}>
+                {content.urgency}
+              </Text>
+            </Column>
+          </Row>
+        </Section>
+
+        {/* Benefits */}
+        <Section style={{ marginBottom: '24px' }}>
+          <Row>
+            <Column align="center">
+              <Text style={{
+                fontSize: '16px',
+                color: '#059669',
+                textAlign: 'center',
+                margin: '0',
+                lineHeight: '24px',
+                whiteSpace: 'pre-line',
+              }}>
+                {content.benefits}
+              </Text>
+            </Column>
+          </Row>
+        </Section>
 
         {/* Two Stacked Buttons */}
         <Section style={{ marginTop: '40px', marginBottom: '0px' }}>
@@ -173,18 +207,35 @@ const AppSubscriptionDiscountEmail = ({
             <Column align="center">
               <div style={buttonContainerStyle}>
                 <PrimaryButton
-                  href={content.button.link}
+                  href={`${subUrl}&PlanId=120`}
                   style={{ marginBottom: '12px' }}
                 >
-                  {yearlyPlanCTA || "<Yearly_Plan_50%>"}
+                  {content.yearlyPlanCTA}
                 </PrimaryButton>
 
                 <SecondaryButton
-                  href={content.button.link}
+                  href={`${subUrl}&PlanId=119`}
                 >
-                  {monthlyPlanCTA || "<Monthly_Plan_50%>"}
+                  {content.monthlyPlanCTA}
                 </SecondaryButton>
               </div>
+            </Column>
+          </Row>
+        </Section>
+
+        {/* Terms */}
+        <Section style={{ marginTop: '32px' }}>
+          <Row>
+            <Column align="center">
+              <Text style={{
+                fontSize: '12px',
+                color: '#6B7280',
+                textAlign: 'center',
+                margin: '0',
+                lineHeight: '18px',
+              }}>
+                {content.terms}
+              </Text>
             </Column>
           </Row>
         </Section>
@@ -195,22 +246,14 @@ const AppSubscriptionDiscountEmail = ({
 
 AppSubscriptionDiscountEmail.PreviewProps = {
   lang: "en",
-  appName: "Our App",
-  discount: "30%",
-  expiryDate: "December 31, 2023",
+  appName: "Your App",
+  userAppGuid: "00000000-0000-0000-0000-000000000000",
+
 };
 
 export default AppSubscriptionDiscountEmail;
 
-export const subject = (props?: AppSubscriptionDiscountEmailProps) => {
-  const lang = props?.lang ?? 'en';
-  const content = appSubscriptionDiscountTranslations[lang] || appSubscriptionDiscountTranslations['en'];
-  const appName = props?.appName ?? 'Our App';
-  const discount = props?.discount ?? '';
-  return (content.subject || `Exclusive ${discount} OFF ${appName}`).replace('{appName}', appName).replace('{discount}', discount);
-};
-
-export const metadata = { subject };
+export const metadata = { subject: appSubscriptionDiscountTranslations.en.subject };
 /* eslint-disable @typescript-eslint/no-explicit-any */
-(AppSubscriptionDiscountEmail as any).subject = subject;
+(AppSubscriptionDiscountEmail as any).subject = appSubscriptionDiscountTranslations.en.subject;
 /* eslint-enable @typescript-eslint/no-explicit-any */
