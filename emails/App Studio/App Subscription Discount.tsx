@@ -15,6 +15,7 @@ import Subtitle from "../Components/Subtitle";
 import PrimaryButton from "../Components/PrimaryButton";
 import SecondaryButton from "../Components/SecondaryButton";
 import { appSubscriptionDiscountTranslations } from "./App Subscription Discount.translations";
+import { COUNTDOWN_GIF_URL } from "../constants";
 
 export interface AppSubscriptionDiscountEmailProps {
   lang?: keyof typeof appSubscriptionDiscountTranslations;
@@ -126,7 +127,7 @@ const AppSubscriptionDiscountEmail = ({
                 display: 'inline-block',
               }}>
                 <Img
-                  src="/static/countdown.gif"
+                  src={COUNTDOWN_GIF_URL}
                   alt="24 Hour Countdown Timer"
                   style={{
                     borderRadius: '8px',

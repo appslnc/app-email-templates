@@ -16,6 +16,7 @@ export const STATIC_ICON_URL = `${IMAGES_BASE_URL}/icon.webp`;
 export const WELCOME_GIF_URL = `${IMAGES_BASE_URL}/welcome.gif`;
 export const CONFETTI_GIF_URL = `${IMAGES_BASE_URL}/confetti.gif`;
 export const DEFAULT_ICON_URL = `${IMAGES_BASE_URL}/default-Icon.png`;
+export const COUNTDOWN_GIF_URL = `${IMAGES_BASE_URL}/countdown.gif`;
 
 // Social Media Icons - PNG from static folder
 export const YOUTUBE_ICON_URL = `${IMAGES_BASE_URL}/yt.png`;
