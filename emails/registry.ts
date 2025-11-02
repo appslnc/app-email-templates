@@ -6,8 +6,13 @@ export const emailTemplateRegistry: Record<string, () => Promise<{ default: (pro
 
   'general/reset-password': () => import('./General/Reset Password'),
   'general/products-promo': () => import('./General/Products Promo'),
+  'general/error': () => import('./General/Error'),
   'app-studio/app-published': () => import('./App Studio/App Published'),
   'app-studio/app-published-no-subscription': () => import('./App Studio/App Published Not Subscribed'),
+  'app-studio/expired-apps': () => import('./App Studio/Expired Apps'),
+  'app-studio/expired-apps-discount': () => import('./App Studio/Expired Apps Discount'),
+  'trial/trial-discount': () => import('./Trial/Trial Discount'),
+  'trial/trial-subscription': () => import('./Trial/Trial Subscription'),
   'app-studio/app-subscribed': () => import('./App Studio/App Subscribed'),
   'app-studio/app-subscription-discount': () => import('./App Studio/App Subscription Discount'),
   'app-studio/domain-subscribed': () => import('./App Studio/Domain Subscribed'),
