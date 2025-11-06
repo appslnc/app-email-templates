@@ -1,9 +1,7 @@
 import {
   Head,
   Container,
-  Heading,
   Preview,
-  Text,
   Section,
   Row,
   Column,
@@ -18,30 +16,16 @@ import { appSubscribedTranslations } from "./App Subscribed.translations";
 
 export interface AppSubscribedEmailProps {
   lang?: keyof typeof appSubscribedTranslations;
+  userAppGuid: string;
   appName?: string;
-  planName?: string;
-  nextBillingDate?: string;
-  yearlyPlanCTA?: string;
-  sixMonthPlanCTA?: string;
-  monthlyPlanCTA?: string;
-  titleText?: string;
-  subtitleText?: string;
   appIcon?: string;
-  previewText?: string;
 }
 
 const AppSubscribedEmail = ({ 
   lang = "en",
-  appName = "Our App",
-  planName = "Premium",
-  nextBillingDate = "January 1, 2024",
-  yearlyPlanCTA,
-  sixMonthPlanCTA,
-  monthlyPlanCTA,
-  titleText,
-  subtitleText,
+  appName = "Your App",
   appIcon,
-  previewText
+  userAppGuid
 }: AppSubscribedEmailProps) => {
   const content = appSubscribedTranslations[lang] || appSubscribedTranslations["en"];
   
@@ -77,23 +61,6 @@ const AppSubscribedEmail = ({
     fontFamily: 'Ubuntu, sans-serif',
   };
 
-
-  const secondaryButtonStyle = {
-    backgroundColor: 'transparent',
-    color: '#000000',
-    padding: '12px 32px',
-    borderRadius: '8px',
-    fontWeight: '500',
-    textDecoration: 'none',
-    display: 'block',
-    textAlign: 'center' as const,
-    fontFamily: 'Ubuntu, sans-serif',
-    width: '100%',
-    maxWidth: '200px',
-    margin: '0 auto',
-    border: '2px solid #000000',
-  };
-
   const iconContainerStyle = {
     textAlign: 'center' as const,
     margin: '0 auto',
@@ -108,10 +75,6 @@ const AppSubscribedEmail = ({
     marginBottom: '10px',
   };
 
-  const buttonContainerStyle = {
-    width: '100%',
-  };
-
   const appNameStyle = {
     fontSize: '18px',
     fontWeight: '600',
@@ -124,7 +87,7 @@ const AppSubscribedEmail = ({
   return (
     <Layout fontFamily={"brand"}>
       <Head>
-        <Preview>{previewText || "Choose your plan - Your app is about to get even better"}</Preview>
+        <Preview>{content.preview}</Preview>
         <style>{`
           @keyframes pulse {
             0%, 100% {
@@ -169,36 +132,38 @@ const AppSubscribedEmail = ({
         </Section>
 
         {/* Title */}
-        <Title>{titleText || "Congratulations!"}</Title>
+        <Title>{content.heading}</Title>
         
         {/* Subtitle */}
         <Subtitle>
-          {subtitleText || "Your app is now on the path to greatness. You can now submit it to the App Store or Google Play to make it accessible to millions of users worldwide."}
+          {content.intro}
+          <br /><br />
+          {content.features}
         </Subtitle>
 
         {/* Three Stacked Buttons */}
         <Section style={{ marginTop: '40px', marginBottom: '0px' }}>
           <Row>
             <Column align="center">
-              <div style={buttonContainerStyle}>
+              <div style={{ width: '100%' }}>
                 <PrimaryButton
-                  href={content.button.link}
+                  href={`https://services.igenapps.com/?AppGuid=${userAppGuid}`}
                   style={{ marginBottom: '12px' }}
                 >
-                  {yearlyPlanCTA || "Submit to Both Stores"}
+                  {content.buttons.submitBoth}
                 </PrimaryButton>
 
                 <SecondaryButton
-                  href={content.button.link}
+                  href={`https://services.igenapps.com/?AppGuid=${userAppGuid}`}
                   style={{ marginBottom: '12px' }}
                 >
-                  {sixMonthPlanCTA || "Submit to App Store"}
+                  {content.buttons.submitAppStore}
                 </SecondaryButton>
 
                 <SecondaryButton
-                  href={content.button.link}
+                  href={`https://services.igenapps.com/?AppGuid=${userAppGuid}`}
                 >
-                  {monthlyPlanCTA || "Submit to Google Play"}
+                  {content.buttons.submitGooglePlay}
                 </SecondaryButton>
               </div>
             </Column>
@@ -212,9 +177,9 @@ const AppSubscribedEmail = ({
 
 AppSubscribedEmail.PreviewProps = {
   lang: "en",
-  appName: "Our App",
-  planName: "Premium",
-  nextBillingDate: "January 1, 2024",
+  appName: "My Awesome App",
+  userAppGuid: "00000000-0000-0000-0000-000000000000",
+  appIcon: "/static/default-Icon.png"
 };
 
 export default AppSubscribedEmail;
@@ -222,8 +187,7 @@ export default AppSubscribedEmail;
 export const subject = (props?: AppSubscribedEmailProps) => {
   const lang = props?.lang ?? 'en';
   const content = appSubscribedTranslations[lang] || appSubscribedTranslations['en'];
-  const appName = props?.appName ?? '';
-  return (content.subject || `Welcome to ${appName} Premium!`).replace('{appName}', appName);
+  return content.subject;
 };
 
 export const metadata = { subject };
